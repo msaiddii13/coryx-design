@@ -81,7 +81,7 @@
       const k = Math.floor(na / s) % n;
       const t = (na - k * s) / s;                       // 0..1 between frame k and k+1
       const k2 = (k + 1) % n;
-      const fadeIn = smooth(0.32, 0.68, t);
+      const fadeIn = smooth(0.43, 0.57, t);
       const turn = Math.min(s * 0.42, 70);              // residual 3D turn per frame
       const edge = Math.sin(t * Math.PI);               // 0 on a face, 1 mid-turn
       const dip = 1 - 0.04 * edge;                      // scale dip ≈0.96 mid-turn
@@ -285,7 +285,7 @@
       s.setAttribute('aria-hidden', 'true');
     });
     if (!REDUCED) gsap.set('.hero__title .char', { yPercent: 115 });
-    if (!REDUCED) gsap.set(['#heroSpin', '.chip', '.hero__copy .eyebrow', '.hero__buy > *', '.hero__outline'], { opacity: 0 });
+    if (!REDUCED) gsap.set(['#heroSpin', '.hero__specs', '.hero__buy > *', '.hero__outline'], { opacity: 0 });
   }
   function heroIn() {
     if (REDUCED) return;
@@ -293,19 +293,16 @@
     tl.fromTo('.hero__outline', { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 1.6 }, 0)
       .fromTo('#heroSpin', { opacity: 0, y: 60, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 1.4 }, 0.05)
       .to('.hero__title .char', { yPercent: 0, duration: 1.1, stagger: 0.028 }, 0.15)
-      .fromTo('.hero__copy .eyebrow', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8 }, 0.3)
-      .fromTo('.chip', { opacity: 0, scale: 0.7, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.9, stagger: 0.09 }, 0.55)
+      .fromTo('.hero__specs', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8 }, 0.3)
       .fromTo('.hero__buy > *', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.08 }, 0.5);
 
-    // chips drift with the mouse (parallax)
+    // product tilts with the mouse (±6°)
     if (FINE) {
-      const chips = [...document.querySelectorAll('.chip')].map((c) => ({ d: +c.dataset.depth || 1, x: gsap.quickTo(c, 'x', { duration: 0.9, ease: 'power3.out' }), y: gsap.quickTo(c, 'y', { duration: 0.9, ease: 'power3.out' }) }));
       const spin = document.getElementById('heroSpin');
       const tx = gsap.quickTo(spin.tilt, 'rotationY', { duration: 1, ease: 'power3.out' });
       const ty = gsap.quickTo(spin.tilt, 'rotationX', { duration: 1, ease: 'power3.out' });
       document.querySelector('.hero').addEventListener('pointermove', (e) => {
         const nx = e.clientX / innerWidth - 0.5, ny = e.clientY / innerHeight - 0.5;
-        chips.forEach((c) => { c.x(nx * 30 * c.d); c.y(ny * 22 * c.d); });
         if (!spin.classList.contains('is-dragging')) { tx(nx * 12); ty(-ny * 12); }   // ±6°
       });
     }
@@ -316,7 +313,6 @@
     tl.to('#heroSpin', { scale: 0.78, yPercent: 10, ease: 'none' }, 0)
       .to('.hero__outline', { xPercent: -18, ease: 'none' }, 0)
       .to('.hero__copy', { yPercent: -40, opacity: 0, ease: 'none' }, 0)
-      .to('.chips', { opacity: 0, ease: 'none' }, 0)
       .to('.hero__buy', { opacity: 0, ease: 'none' }, 0);
   }
   function swatches() {
