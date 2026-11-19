@@ -1,0 +1,4 @@
+_source-images/
+_cutouts/
+node_modules/
+.DS_Store

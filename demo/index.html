@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CORYX — Performance in Motion</title>
+<meta name="description" content="CORYX World design concept: premium gym and sportswear from Qatar.">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="images/logo-red.png">
+<link rel="preload" as="image" href="images/cutouts/jersey-national-0.webp" fetchpriority="high">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<!-- Page-load intro (once per session) -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__panel intro__panel--top"></div>
+  <div class="intro__panel intro__panel--bottom"></div>
+  <div class="intro__mark"><img src="images/logo-red.png" alt="" width="84" height="156"></div>
+  <button class="intro__skip" type="button" tabindex="-1">Skip</button>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__label">Drag</span></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" id="header">
+  <a class="header__logo" href="#top" aria-label="CORYX home">
+    <img src="images/logo-white.png" alt="" width="20" height="37">
+    <span class="header__word">CORYX</span>
+  </a>
+  <nav class="header__nav" aria-label="Main">
+    <a href="#showcase">New</a>
+    <a href="#rail">Bestsellers</a>
+    <a href="#essentials">Men</a>
+    <a href="#essentials">Women</a>
+    <a href="#essentials">Accessories</a>
+  </nav>
+  <div class="header__tools">
+    <button class="icon-btn" type="button" aria-label="Search">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="icon-btn cart-btn" type="button" aria-label="Cart, 0 items">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <span class="cart-btn__count" id="cartCount" hidden>0</span>
+    </button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <a href="#showcase">New</a>
+  <a href="#rail">Bestsellers</a>
+  <a href="#essentials">Men</a>
+  <a href="#essentials">Women</a>
+  <a href="#essentials">Accessories</a>
+</div>
+
+<main id="main">
+
+<!-- 4.1 HERO -->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__outline" aria-hidden="true">CORYX</div>
+
+  <div class="hero__stage">
+    <coryx-spin id="heroSpin" mode="auto" eager
+      label="CORYX Team Jersey – First Edition"
+      frames='["images/cutouts/jersey-national-0.webp","images/cutouts/jersey-national-1.webp","images/cutouts/jersey-national-2.webp","images/cutouts/jersey-national-3.webp"]'
+      ratio="1000/1500"></coryx-spin>
+
+    <ul class="chips" aria-label="Product highlights">
+      <li class="chip" data-depth="1.2"><span class="chip__dot"></span>Breathable mesh</li>
+      <li class="chip" data-depth="0.7"><span class="chip__dot"></span>Oversized fit</li>
+      <li class="chip" data-depth="1.6"><span class="chip__dot"></span>First Edition</li>
+      <li class="chip" data-depth="0.9"><span class="chip__dot"></span>Game-day ready</li>
+    </ul>
+  </div>
+
+  <div class="hero__copy">
+    <p class="eyebrow">New drop · Qatar</p>
+    <h1 class="hero__title" id="heroTitle"><span class="hero__line">Performance</span> <span class="hero__line">in Motion</span></h1>
+  </div>
+
+  <div class="hero__buy">
+    <div class="hero__product">
+      <p class="hero__name" id="heroName">CORYX Team Jersey – First Edition</p>
+      <p class="price"><span class="price__now" id="heroPrice">QAR 99</span> <s class="price__was" id="heroWas">QAR 326</s></p>
+      <div class="swatches" role="radiogroup" aria-label="Colour">
+        <button class="swatch is-active" type="button" role="radio" aria-checked="true" style="--sw:#f4f2ee;--sw2:#7a1f3d" data-set="national" aria-label="The National (white and maroon)"></button>
+        <button class="swatch" type="button" role="radio" aria-checked="false" style="--sw:#1a1a1a;--sw2:#8a8a8a" data-set="noir" aria-label="Noir (black and grey)"></button>
+        <span class="swatches__label" id="swatchLabel">The National</span>
+      </div>
+    </div>
+    <div class="hero__ctas">
+      <a class="btn btn--primary magnetic" href="#rail"><span>Shop Now</span></a>
+      <a class="btn btn--ghost magnetic" href="#showcase"><span>Explore the drop</span></a>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#marquee" aria-label="Scroll down"><span></span></a>
+</section>
+
+<!-- 4.2 MARQUEE -->
+<section class="marquee" id="marquee" aria-label="Train, recover, repeat">
+  <div class="marquee__row" data-dir="1"><div class="marquee__track">
+    <span>Train</span><i>•</i><span>Recover</span><i>•</i><span>Repeat</span><i>•</i>
+    <span>Train</span><i>•</i><span>Recover</span><i>•</i><span>Repeat</span><i>•</i>
+  </div></div>
+  <div class="marquee__row marquee__row--outline" data-dir="-1" aria-hidden="true"><div class="marquee__track">
+    <span>Sleek in Motion</span><i>✦</i><span>The Essentials</span><i>✦</i>
+    <span>Sleek in Motion</span><i>✦</i><span>The Essentials</span><i>✦</i>
+  </div></div>
+</section>
+
+<!-- 4.3 SCROLL SHOWCASE -->
+<section class="showcase" id="showcase" aria-label="Featured products">
+  <div class="showcase__pin">
+    <div class="showcase__bg" aria-hidden="true"></div>
+    <div class="showcase__word" aria-hidden="true"><span>BREATHE</span><span>COMPRESS</span><span>RECOVER</span></div>
+    <div class="showcase__stage">
+      <coryx-spin class="showcase__spin" mode="scroll" data-i="0" label="CORYX Tank" frames='["images/cutouts/tank-front.webp","images/cutouts/tank-back.webp"]' ratio="1000/1500"></coryx-spin>
+      <coryx-spin class="showcase__spin" mode="scroll" data-i="1" label="CORYX Compression Shirt" frames='["images/cutouts/compression-front.webp","images/cutouts/compression-back.webp"]' ratio="1000/1500"></coryx-spin>
+      <coryx-spin class="showcase__spin" mode="scroll" data-i="2" label="CORYX Hoodie (Women)" frames='["images/cutouts/hoodie-w-front.webp","images/cutouts/hoodie-w-back.webp"]' ratio="1000/1500"></coryx-spin>
+    </div>
+    <div class="showcase__copy">
+      <article class="sc-item" data-handle="coryx-tank" data-bg="#0d2219" data-accent="#2f8f5b">
+        <p class="eyebrow"><span class="sc-num">01</span> / 03</p>
+        <h2 class="sc-title">The Tank</h2>
+        <ul class="sc-bullets"><li>Ribbed, body-skimming fit</li><li>Full freedom through the shoulders</li><li>Five colours for every split</li></ul>
+        <p class="price"><span class="price__now"></span> <s class="price__was"></s></p>
+      </article>
+      <article class="sc-item" data-handle="compression-shirt" data-bg="#3a0613" data-accent="#ED0A3F">
+        <p class="eyebrow"><span class="sc-num">02</span> / 03</p>
+        <h2 class="sc-title">Compression Shirt</h2>
+        <ul class="sc-bullets"><li>Second-skin compression fit</li><li>Built for heavy sessions</li><li>Black or white</li></ul>
+        <p class="price"><span class="price__now"></span> <s class="price__was"></s></p>
+      </article>
+      <article class="sc-item" data-handle="women-hoodies" data-bg="#1b1d23" data-accent="#b9b9c0">
+        <p class="eyebrow"><span class="sc-num">03</span> / 03</p>
+        <h2 class="sc-title">The Hoodie</h2>
+        <ul class="sc-bullets"><li>Heavyweight, relaxed silhouette</li><li>Warm-up to cool-down</li><li>Gray or black</li></ul>
+        <p class="price"><span class="price__now"></span> <s class="price__was"></s></p>
+      </article>
+    </div>
+    <div class="showcase__progress" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<!-- 4.4 PRODUCT RAIL -->
+<section class="rail" id="rail" aria-labelledby="railTitle">
+  <div class="section-head">
+    <h2 class="section-title" id="railTitle" data-reveal>Bestsellers</h2>
+    <div class="rail__nav">
+      <button class="icon-btn icon-btn--ring" type="button" data-rail="-1" aria-label="Previous products"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+      <button class="icon-btn icon-btn--ring" type="button" data-rail="1" aria-label="Next products"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+    </div>
+  </div>
+  <div class="rail__track" id="railTrack" tabindex="0" aria-label="Bestseller products, scroll horizontally"></div>
+</section>
+
+<!-- 4.5 SPLIT FEATURE -->
+<section class="split" aria-labelledby="splitTitle">
+  <div class="split__media">
+    <img src="images/lifestyle-football.webp" alt="Footballer in CORYX shorts striking the ball on a pitch" width="1000" height="1250" loading="lazy">
+  </div>
+  <div class="split__copy">
+    <p class="eyebrow">Sleek in Motion</p>
+    <h2 class="section-title" id="splitTitle" data-reveal>Made to move.<br>Born in Qatar.</h2>
+    <p class="split__text" data-reveal-lines>From the pitch to the gym floor — CORYX is built for the heat, the reps and the late sessions. Kit that keeps up, and looks sharp doing it.</p>
+    <a class="btn btn--primary magnetic" href="#essentials"><span>Shop the collection</span></a>
+  </div>
+</section>
+
+<!-- 4.6 CATEGORIES -->
+<section class="cats" id="essentials" aria-labelledby="catsTitle">
+  <div class="section-head">
+    <h2 class="section-title" id="catsTitle" data-reveal>The Essentials</h2>
+  </div>
+  <div class="cats__grid">
+    <a class="cat" href="https://coryxworld.com/collections/all" target="_blank" rel="noopener">
+      <img src="images/mens-hoodies-5.webp" alt="Man wearing a gray CORYX hoodie" loading="lazy" width="1067" height="1600">
+      <span class="cat__title">Men <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="cat" href="https://coryxworld.com/collections/all" target="_blank" rel="noopener">
+      <img src="images/coryx-gym-t-shirt-women-8.webp" alt="Woman in a brown CORYX T-shirt holding a basketball" loading="lazy" width="1067" height="1600">
+      <span class="cat__title">Women <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="cat" href="https://coryxworld.com/collections/all" target="_blank" rel="noopener">
+      <img src="images/lifestyle-jersey.webp" alt="Model in the black CORYX Team Jersey" loading="lazy" width="1080" height="1440">
+      <span class="cat__title">Teamwear <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="cat cat--product" href="https://coryxworld.com/collections/all" target="_blank" rel="noopener">
+      <img src="images/coryx-performance-cap-1.webp" alt="White CORYX Performance Cap" loading="lazy" width="1600" height="1600">
+      <span class="cat__title">Accessories <b aria-hidden="true">→</b></span>
+    </a>
+  </div>
+</section>
+
+<!-- 4.7 TRUST -->
+<section class="trust" aria-label="Why CORYX">
+  <ul class="trust__list">
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg><strong>Performance quality</strong><span>Fabrics chosen for training</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><strong>Secure checkout</strong><span>Protected payments</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h12v9H2zM14 10h4l4 3v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><strong>Reliable delivery</strong><span>Across Qatar</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg><strong>Customer support</strong><span>Chat with us on WhatsApp</span></li>
+  </ul>
+  <div class="trust__counter">
+    <span class="counter" data-to="1">0</span><span class="counter__label">st Anniversary</span>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__big" aria-hidden="true">CORYX</div>
+  <div class="footer__grid">
+    <div>
+      <img src="images/logo-white.png" alt="CORYX" width="26" height="48">
+      <p class="footer__tag">Performance in Motion.</p>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <a href="#rail">Bestsellers</a><a href="#essentials">Men</a><a href="#essentials">Women</a><a href="#essentials">Accessories</a>
+    </div>
+    <div>
+      <h3>Help</h3>
+      <a href="#">Shipping</a><a href="#">Returns</a><a href="#">FAQ</a><a href="#">Contact</a>
+    </div>
+    <form class="footer__news" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+      <h3>Get 15% off your first order</h3>
+      <div class="footer__field"><label for="newsEmail" class="sr-only">Email</label><input id="newsEmail" type="email" placeholder="Email address" required><button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button></div>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/coryxworld/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@coryx_world" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://wa.me/97451077577" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </form>
+  </div>
+  <p class="footer__legal">© 2026 CORYX World · Doha, Qatar</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="concept-label">Design concept – not the live store</div>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="data.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
